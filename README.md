@@ -98,3 +98,14 @@ Progress:
 [ ] Alerting
 
 [ ] Automation
+
+## Sprint 1 - Docker Server Setup
+
+- Created Ubuntu container as home server
+- Installed SSH server inside container
+- Created non-root user (jay)
+- Enabled basic server tooling
+
+### Architecture
+
+Mac → Docker → Ubuntu Server Container
