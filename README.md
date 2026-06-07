@@ -1,111 +1,162 @@
-# Home Automation Platform
+Distributed Home Automation Platform
 
-## Overview
+Overview
 
-A self-hosted cloud platform for personal automation, monitoring, and infrastructure experimentation.
+A self-hosted distributed system for home automation and environmental monitoring.
 
-The goal of this project is to build a production-like environment at home while learning Linux, Docker, monitoring, observability, and DevOps practices.
+This project is designed as a learning-focused production-like system, combining:
 
----
+* Linux server administration
+* Docker-based service deployment
+* MQTT-based distributed communication
+* Observability (monitoring & logging)
+* Basic edge computing concepts
+* DevOps practices
 
-## Objectives
-- Build and manage a Linux server
+The goal is not just to build services, but to understand how distributed systems are structured, deployed, and maintained in real-world environments.
 
-- Containerize services using Docker
+⸻
 
-- Create a monitoring stack
+Core Objectives
 
-- Configure alert systems
+* Build and operate a Linux-based home server environment
+* Understand containerization using Docker
+* Design a simple distributed system using MQTT (Pub/Sub model)
+* Collect and process sensor data from multiple edge nodes
+* Implement monitoring and logging infrastructure
+* Practice system debugging and incident handling
+* Document system architecture and decisions
 
-- Practice incident handling
+⸻
 
-- Document the complete process
+System Architecture
 
----
+High-Level Design
 
-## Planned Architecture
+Edge Devices (Simulated / ESP32 later)
+        ↓
+    MQTT Broker
+        ↓
+  Backend Services
+        ↓
+ Database + Processing Layer
+        ↓
+ Observability Stack
+ (Grafana / Prometheus / Logs)
 
-User Devices
+⸻
 
-↓
+Components
 
-Reverse Proxy
+Edge Layer
 
-↓
+* Sensor nodes (initially simulated, later ESP32)
+* Publishes environmental data (temperature, humidity, etc.)
 
-Services
+Messaging Layer
 
-- Nextcloud
+* MQTT Broker (Mosquitto)
+* Decouples sensors from backend systems
 
-- Dashboard
+Backend Layer
 
-- APIs
+* Data ingestion service (Python)
+* Processes and stores sensor data
 
-↓
+Data Layer
 
-Monitoring
+* PostgreSQL or SQLite (initial phase)
 
-- Prometheus
+Observability Layer
 
-- Grafana
+* Grafana dashboards
+* Prometheus metrics
+* Logging system (Loki optional)
 
-- Loki
+⸻
 
-↓
+Tech Stack
 
-Alerting
+* Ubuntu Server (or Docker environment on Mac)
+* Docker & Docker Compose
+* MQTT (Mosquitto)
+* Python (FastAPI or simple scripts)
+* PostgreSQL / SQLite
+* Grafana / Prometheus (later phase)
 
-- Telegram
+⸻
 
----
+Project Status
 
-## Tech Stack
+Sprint 0 — Foundation
 
-- Ubuntu Server
+* Project initialization
+* Architecture design refinement
+* Docker environment setup
 
-- Docker
+⸻
 
-- Nginx
+Sprint 1 — Messaging Layer (MQTT Core)
 
-- Prometheus
+* Set up MQTT broker using Docker
+* Create simple sensor data simulator
+* Test publish/subscribe flow
 
-- Grafana
+⸻
 
-- Loki
+Sprint 2 — Backend Ingestion
 
-- Nextcloud
+* Python subscriber service
+* Store incoming data
+* Basic logging
 
----
+⸻
 
-## Project Status
+Sprint 3 — Data Storage
 
-Current Sprint:
+* Database integration
+* Data schema design
 
-Sprint 0 — Project initialization
+⸻
 
-Progress:
+Sprint 4 — Observability
 
-[ ] Linux setup
+* Grafana dashboard
+* Metrics visualization
 
-[ ] Docker environment
+⸻
 
-[ ] Dashboard
+Sprint 5 — Edge Upgrade
 
-[ ] Monitoring
+* ESP32 integration
+* Real sensor data ingestion
 
-[ ] Logging
+⸻
 
-[ ] Alerting
+Sprint 6 — System Expansion
 
-[ ] Automation
+* Multi-node simulation
+* Failure handling tests
+* Alert system
 
-## Sprint 1 - Docker Server Setup
+⸻
 
-- Created Ubuntu container as home server
-- Installed SSH server inside container
-- Created non-root user (jay)
-- Enabled basic server tooling
+Key Learning Outcomes
 
-### Architecture
+By completing this project, I aim to understand:
 
-Mac → Docker → Ubuntu Server Container
+* How distributed systems communicate (Pub/Sub model)
+* How containerized services interact
+* How real-world IoT systems are structured
+* How monitoring and observability are implemented
+* How production-like systems are operated and debugged
+
+⸻
+
+Philosophy
+
+This project prioritizes:
+
+Understanding system design over feature complexity
+Iterative learning over perfect architecture
+Hands-on experimentation over theoretical study
